@@ -10,13 +10,13 @@
 #include <string>
 #include <vector>
 
-#include "shader.h";
+#include "shader.h"
 
 
 struct Vertex {
 	glm::vec3 Position;
 	glm::vec3 Normal;
-	glm::vec3 TexCoords
+	glm::vec3 TexCoords;
 };
 
 struct Texture {
