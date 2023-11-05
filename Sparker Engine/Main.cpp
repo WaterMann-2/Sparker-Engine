@@ -1,4 +1,3 @@
-#include <filesystem>
 
 #include <string>
 #include <iostream>
@@ -47,6 +46,16 @@ void mouse_delta_callback(GLFWwindow* window, double xpos, double ypos);
 void mouse_entered_callback(GLFWwindow* window, int entered);
 unsigned int loadTexture(char const* path);
 
+struct Vertex {
+	glm::vec3 Position;
+	glm::vec3 Normal;
+	glm::vec2 TexCoords;
+};
+
+struct Texture {
+	unsigned int id;
+	string type;
+};
 
 int main() {
 

@@ -76,7 +76,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\CPP Useful Libraries\stb-master;C:\glfw-lib\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\glfw-lib\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\glfw-lib\assimp;C:\glfw-lib\lib;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\glfw-lib\assimp;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\CPP Useful Libraries\stb-master;C:\glfw-lib\include;$(IncludePath)</IncludePath>
