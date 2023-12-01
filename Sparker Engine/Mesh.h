@@ -22,6 +22,7 @@ struct Vertex {
 struct Texture {
 	unsigned int id;
 	std::string type;
+	string path;
 };
 
 class Mesh {
