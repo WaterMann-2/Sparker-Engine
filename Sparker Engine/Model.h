@@ -21,6 +21,8 @@
 #include "Shader.h"
 #include "Mesh.h"
 
+unsigned int TextureFromFile(const char* path, const string& directory, bool gamma);
+
 class Model {
 
 public:
@@ -49,13 +51,14 @@ private:
 
 		directory = path.substr(0, path.find_last_of('/'));
 
+		cout << "MODEl DIRECTORY: " << directory << endl;
+
 		processNode(scene->mRootNode, scene);
 	}
 
 	void processNode(aiNode* node, const aiScene* scene) {
-
-		for (unsigned int i = 0; i < scene->mNumMeshes; i++) {
-			aiMesh *mesh = scene->mMeshes[node->mMeshes[i]];
+		for (unsigned int i = 0; i < node->mNumMeshes; i++) {
+			aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 			meshes.push_back(processMesh(mesh, scene));
 		}
 
@@ -71,7 +74,7 @@ private:
 		vector<unsigned int> indices;
 		vector<Texture> textures;
 
-		for (unsigned int i; i < mesh->mNumVertices; i++) {
+		for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
 			glm::vec3 vector;
 			Vertex vertex;
 			
@@ -88,13 +91,15 @@ private:
 			vertex.Normal = vector;
 
 			if (mesh->mTextureCoords[0]) {
-				glm::vec2 vec;
+				/*glm::vec2 vec;
 				vec.x = mesh->mTextureCoords[0][i].x;
-				vec.y = mesh->mTextureCoords[0][i].y;
-				vertex.TexCoords = vec;
+				vec.y = mesh->mTextureCoords[0][i].y;*/
+				vertex.TexCoords.x = mesh->mTextureCoords[0][i].x;
+				vertex.TexCoords.y = mesh->mTextureCoords[0][i].y;
 			}
 			else {
-				vertex.TexCoords = glm::vec2(0.0f, 0.0f);
+				vertex.TexCoords.x = 0.0f;
+				vertex.TexCoords.y = 0.0f;
 			}
 
 			vertices.push_back(vertex);
@@ -102,7 +107,7 @@ private:
 
 		for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
 			aiFace face = mesh->mFaces[i];
-			for (unsigned int j; j < face.mNumIndices; j++) {
+			for (unsigned int j = 0; j < face.mNumIndices; j++) {
 				indices.push_back(face.mIndices[j]);
 			}
 		}
@@ -116,6 +121,7 @@ private:
 			textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
 		}
 
+		return Mesh(vertices, indices, textures);
 	}
 
 	vector<Texture> loadMaterialTextures(aiMaterial* material, aiTextureType type, string typeName) {
@@ -150,10 +156,11 @@ private:
 
 };
 
-unsigned int TextureFromFile(const char* path, const string& directory, bool gamma)
-{
+unsigned int TextureFromFile(const char* path, const string& directory, bool gamma){
 	string filename = string(path);
 	filename = directory + '/' + filename;
+
+	cout << filename << endl;
 
 	unsigned int textureID;
 	glGenTextures(1, &textureID);

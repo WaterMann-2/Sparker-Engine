@@ -47,16 +47,6 @@ void mouse_delta_callback(GLFWwindow* window, double xpos, double ypos);
 void mouse_entered_callback(GLFWwindow* window, int entered);
 unsigned int loadTexture(char const* path);
 
-struct Vertex {
-	glm::vec3 Position;
-	glm::vec3 Normal;
-	glm::vec2 TexCoords;
-};
-
-struct Texture {
-	unsigned int id;
-	string type;
-};
 
 int main() {
 
@@ -83,24 +73,20 @@ int main() {
 		std::cout << "Failed to load Glad" << endl;
 	}
 
+	stbi_set_flip_vertically_on_load(true);
+
 	//global opengl state
 	glEnable(GL_DEPTH_TEST);
 
-	//Model Import
+	//build and compile shaders
+	Shader backpackShader("model_loading.vs", "model_loading.frag");
 
-	Model backpackModel("C:/Users/robsc/Downloads/backpack/backpack.obj");
+	//Load Models
+	Model backpackModel("backpack/backpack.obj");
 
 	//Camera stuff
-
 	windowSize = glm::vec2(windowStartingSize.x, windowStartingSize.y);
 	Camera cam("Main", window, 90.0f);
-
-	//transformations
-	glm::mat4 model = glm::mat4(1.0f);
-	glm::mat4 projection;
-
-	float angle = 0;
-
 
 	while (!glfwWindowShouldClose(window)) {
 
@@ -119,9 +105,8 @@ int main() {
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		
-
-		backpackModel.Draw();
+		//Use Shaders
+		backpackShader.use();
 
 		//Camera Update
 		cam.UpdateProjection(windowSize.x, windowSize.y);
@@ -129,44 +114,27 @@ int main() {
 		cam.transform.position = cameraPos;
 		cam.transform.rotation = glm::vec3(pitch, yaw, 0.0f);
 		cameraFront = cam.cameraFront;
-		
+
 		cam.UpdateCamera();
-		
+
 		glm::mat4 projection = cam.projection;
 		glm::mat4 view = cam.view;
-		lightingShader.setMat4("projection", projection);
-		lightingShader.setMat4("view", view);
-		
-		//World transformationns
+
+		//Update Shader Projection
+		backpackShader.setMat4("projection", projection);
+		backpackShader.setMat4("view", view);
+
+		//Render Models
 		glm::mat4 model = glm::mat4(1.0f);
-		lightingShader.setMat4("model", model);
-
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, diffuseMap);
-
-		glActiveTexture(GL_TEXTURE1);
-		glBindTexture(GL_TEXTURE_2D, specularMap);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		backpackShader.setMat4("model", model);
+		backpackModel.Draw(backpackShader);
 
 
-		//Render cube
-		glBindVertexArray(cubeVAO);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		//Render lamp
-		lightCubeShader.use();
-		lightCubeShader.setMat4("projection", projection);
-		lightCubeShader.setMat4("view", view);
+		
 
-		//Transform lamp
-		model = glm::mat4(1.0);
-		model = glm::translate(model, lightTransform.position);
-		model = glm::scale(model, glm::vec3(0.2f));
-
-		lightCubeShader.setMat4("model", model);
-
-		//Draw Light Cube
-		glBindVertexArray(lightCubeVAO);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//call events, buffer swap
 		glfwSwapBuffers(window);

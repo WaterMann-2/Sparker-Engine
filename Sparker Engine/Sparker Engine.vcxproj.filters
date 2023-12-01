@@ -35,26 +35,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Basic.vs">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="Basic.frag">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="Light.vs">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="Light.frag">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="LightSource.vs">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="LightSource.frag">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -70,11 +50,14 @@
     <ClInclude Include="MeshRenderer.h">
       <Filter>Header Files\Components\MeshComponents</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Light.h">
       <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,5 +67,13 @@
     <Image Include="Resources\container2_specular.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="model_loading.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="model_loading.vs">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

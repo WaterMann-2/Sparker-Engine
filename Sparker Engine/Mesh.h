@@ -21,7 +21,7 @@ struct Vertex {
 
 struct Texture {
 	unsigned int id;
-	std::string type;
+	string type;
 	string path;
 };
 
@@ -44,6 +44,8 @@ public:
 	void Draw(Shader shader) {
 		unsigned int diffuseNr = 1;
 		unsigned int specularNr = 1;
+
+
 
 		for (unsigned int i = 0; i < textures.size(); i++){
 			glActiveTexture(GL_TEXTURE0 + i);

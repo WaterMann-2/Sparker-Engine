@@ -120,11 +120,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,25 +151,22 @@
     <ClCompile Include="STBstuff.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Basic.frag" />
-    <None Include="Light.frag" />
-    <None Include="Light.vs" />
-    <None Include="Basic.vs" />
-    <None Include="LightSource.frag" />
-    <None Include="LightSource.vs" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshRenderer.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="C:\Users\robsc\Pictures\container2.png" />
     <Image Include="Resources\container2_specular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="model_loading.frag" />
+    <None Include="model_loading.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
