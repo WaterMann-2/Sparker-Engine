@@ -1,5 +1,8 @@
 
-#include <string>
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+
 #include <iostream>
 #include <glad/glad.h>
 #include <glfw3.h>
@@ -8,12 +11,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <string>
+
 #include "Shader.h"
 #include "stb_image.h"
 #include "Transform.h"
 #include "Camera.h"
 #include "MeshRenderer.h"
 #include "Model.h"
+#include "Window.h"
 
 glm::vec2 windowSize;
 glm::vec2 oldSize;
@@ -42,6 +48,8 @@ float pitch = 0.0f, yaw = -90.0f;
 bool firstmouse = true;
 bool MouseEntered = false;
 
+ImGuiIO* globalIO;
+
 void processInput(GLFWwindow* window);
 void mouse_delta_callback(GLFWwindow* window, double xpos, double ypos);
 void mouse_entered_callback(GLFWwindow* window, int entered);
@@ -50,14 +58,9 @@ unsigned int loadTexture(char const* path);
 
 int main() {
 
-	//Initilize and Configure
-	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
 	//Window Creation
-	GLFWwindow* window = glfwCreateWindow(windowStartingSize.x, windowStartingSize.y, "Shitass Nuts", NULL, NULL);
+	Window mainWindow(windowStartingSize, "Sparker Engine");
+	GLFWwindow* window = mainWindow.window;
 
 	if (window == NULL) {
 		std::cout << "Failed to create GLFW window" << std::endl;
@@ -88,6 +91,15 @@ int main() {
 	windowSize = glm::vec2(windowStartingSize.x, windowStartingSize.y);
 	Camera cam("Main", window, 90.0f);
 
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	globalIO = &io;
+	ImGui::StyleColorsDark();
+	ImGui_ImplGlfw_InitForOpenGL(window, true);
+	ImGui_ImplOpenGL3_Init("#version 330");
+
+
 	while (!glfwWindowShouldClose(window)) {
 
 		//Frame Time Logic
@@ -104,6 +116,10 @@ int main() {
 		//render loop
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
 
 		//Use Shaders
 		backpackShader.use();
@@ -132,14 +148,21 @@ int main() {
 		backpackModel.Draw(backpackShader);
 
 
+		ImGui::Begin("Shitass Nuts");
+		ImGui::Text("GO TO HELL!");
+		ImGui::End();
 
-		
-
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		//call events, buffer swap
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
+
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
+	ImGui::DestroyContext();
 
 
 	glfwTerminate();
@@ -147,6 +170,8 @@ int main() {
 }
 
 void processInput(GLFWwindow *window) {
+
+	ImGuiIO& io = *globalIO;
 	
 	const float cameraSpeed = 1.0f * deltaTime;
 
@@ -155,7 +180,7 @@ void processInput(GLFWwindow *window) {
 		firstmouse = true;
 	}
 
-	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && MouseEntered) {
+	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && MouseEntered && !io.WantCaptureMouse) {
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	}
 
@@ -177,6 +202,16 @@ void processInput(GLFWwindow *window) {
 }
 
 void mouse_delta_callback(GLFWwindow* window, double xpos, double ypos) {
+
+	if (glfwGetInputMode(window, GLFW_CURSOR) == GLFW_CURSOR_NORMAL) {
+		return;
+	}
+
+	double rxpos, rypos;
+
+	glfwGetCursorPos(window, &rxpos, &rypos);
+
+	cout << "x: " << rxpos << " y: " << rypos << endl;
 
 	if (firstmouse) {
 		lastx = xpos;
