@@ -21,6 +21,8 @@
 #include "Model.h"
 #include "Window.h"
 
+#include "Engine/GUI/gui.h"
+
 glm::vec2 windowSize;
 glm::vec2 oldSize;
 
@@ -91,13 +93,8 @@ int main() {
 	windowSize = glm::vec2(windowStartingSize.x, windowStartingSize.y);
 	Camera cam("Main", window, 90.0f);
 
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	globalIO = &io;
-	ImGui::StyleColorsDark();
-	ImGui_ImplGlfw_InitForOpenGL(window, true);
-	ImGui_ImplOpenGL3_Init("#version 330");
+	gui basicGui(window);
+	globalIO = basicGui.IO;
 
 
 	while (!glfwWindowShouldClose(window)) {
@@ -117,9 +114,7 @@ int main() {
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
+		basicGui.BeginFrame();
 
 		//Use Shaders
 		backpackShader.use();
@@ -152,17 +147,14 @@ int main() {
 		ImGui::Text("GO TO HELL!");
 		ImGui::End();
 
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		basicGui.EndFrame();
 
 		//call events, buffer swap
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
-	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplGlfw_Shutdown();
-	ImGui::DestroyContext();
+	basicGui.~gui();;
 
 
 	glfwTerminate();

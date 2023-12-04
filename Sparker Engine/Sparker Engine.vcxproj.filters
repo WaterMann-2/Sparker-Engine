@@ -22,14 +22,23 @@
     <Filter Include="Header Files\Components\MeshComponents">
       <UniqueIdentifier>{e1f87653-41df-4ab4-8f3a-000eee5b36c9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\imgui">
-      <UniqueIdentifier>{5e91d02d-5554-46d9-9ba1-e1927a8c2fe2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GUI">
       <UniqueIdentifier>{e1d3cb84-192d-46fe-ad1b-b9f5675a0b3d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GUI\imgui">
+    <Filter Include="Header Files\External">
+      <UniqueIdentifier>{56aa2a59-79b3-4eaf-bab1-8f6d71e680fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\External\imgui">
       <UniqueIdentifier>{2ca9dc66-ae21-4b89-90db-9b3638b9532a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{72cd36da-bd85-4ad5-a3b0-d371b6380e74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\External">
+      <UniqueIdentifier>{fef64fc9-58ba-4b57-b508-c8b77d14c68d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\External\imgui">
+      <UniqueIdentifier>{5e91d02d-5554-46d9-9ba1-e1927a8c2fe2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,25 +52,28 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dependencies\ImGui\imgui_demo.cpp">
-      <Filter>Source Files\imgui</Filter>
+      <Filter>Source Files\External\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Dependencies\ImGui\imgui_draw.cpp">
-      <Filter>Source Files\imgui</Filter>
+      <Filter>Source Files\External\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Dependencies\ImGui\imgui_impl_glfw.cpp">
-      <Filter>Source Files\imgui</Filter>
+      <Filter>Source Files\External\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Dependencies\ImGui\imgui_impl_opengl3.cpp">
-      <Filter>Source Files\imgui</Filter>
+      <Filter>Source Files\External\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Dependencies\ImGui\imgui_tables.cpp">
-      <Filter>Source Files\imgui</Filter>
+      <Filter>Source Files\External\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Dependencies\ImGui\imgui_widgets.cpp">
-      <Filter>Source Files\imgui</Filter>
+      <Filter>Source Files\External\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Dependencies\ImGui\imgui.cpp">
-      <Filter>Source Files\imgui</Filter>
+      <Filter>Source Files\External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GUI\gui.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,31 +102,34 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui_impl_opengl3.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui_internal.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imstb_rectpack.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imstb_textedit.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imstb_truetype.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imconfig.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui_impl_glfw.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui_impl_opengl3_loader.h">
-      <Filter>Header Files\GUI\imgui</Filter>
+      <Filter>Header Files\External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GUI\gui.h">
+      <Filter>Header Files\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
