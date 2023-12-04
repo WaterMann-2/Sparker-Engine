@@ -5,11 +5,6 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sparker Engine", "Sparker Engine\Sparker Engine.vcxproj", "{045C4EFD-68A8-428C-BEF6-C3D98FAE39DD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F3664C5-88F7-410D-9872-6BB8944DB481}"
-	ProjectSection(SolutionItems) = preProject
-		Sparker Engine\Sharpfish.jpg = Sparker Engine\Sharpfish.jpg
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

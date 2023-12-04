@@ -1,27 +1,26 @@
-
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
+#include <ImGui/imgui.h>
+#include <ImGui/imgui_impl_glfw.h>
+#include <ImGui/imgui_impl_opengl3.h>
 
 #include <iostream>
 #include <glad/glad.h>
-#include <glfw3.h>
+#include <glfw3/glfw3.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <stb/stb_image.h>
+
 #include <string>
 
-#include "Shader.h"
-#include "stb_image.h"
-#include "Transform.h"
-#include "Camera.h"
-#include "MeshRenderer.h"
-#include "Model.h"
-#include "Window.h"
+#include "Renderer/Shader.h"
+#include "Utility/Transform.h"
+#include "Renderer/Camera.h"
+#include "GameObject/Model.h"
+#include "Utility/Window.h"
 
-#include "Engine/GUI/gui.h"
+#include "GUI/gui.h"
 
 glm::vec2 windowSize;
 glm::vec2 oldSize;
@@ -84,7 +83,7 @@ int main() {
 	glEnable(GL_DEPTH_TEST);
 
 	//build and compile shaders
-	Shader backpackShader("model_loading.vs", "model_loading.frag");
+	Shader backpackShader("Shared/Engine/Default Shaders/model_loading.vs", "Shared/Engine/Default Shaders/model_loading.frag");
 
 	//Load Models
 	Model backpackModel("backpack/backpack.obj");
@@ -154,7 +153,7 @@ int main() {
 		glfwPollEvents();
 	}
 
-	basicGui.~gui();;
+	basicGui.guiTerminate();
 
 
 	glfwTerminate();

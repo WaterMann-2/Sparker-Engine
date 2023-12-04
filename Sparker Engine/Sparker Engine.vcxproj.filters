@@ -13,123 +13,177 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Shaders">
-      <UniqueIdentifier>{8b5b7173-dff3-4d14-a7f6-6e7c8ce80b61}</UniqueIdentifier>
+    <Filter Include="Source Files\Shared">
+      <UniqueIdentifier>{09f47ab2-583a-43a7-872a-1e3132db55d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Components">
-      <UniqueIdentifier>{e99bd2f1-c15c-44fc-9fe3-bb50b6d0583e}</UniqueIdentifier>
+    <Filter Include="Source Files\Shared\Engine">
+      <UniqueIdentifier>{14dcd55e-e9da-46ba-87c5-883c98e42603}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Components\MeshComponents">
-      <UniqueIdentifier>{e1f87653-41df-4ab4-8f3a-000eee5b36c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GUI">
-      <UniqueIdentifier>{e1d3cb84-192d-46fe-ad1b-b9f5675a0b3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\External">
-      <UniqueIdentifier>{56aa2a59-79b3-4eaf-bab1-8f6d71e680fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\External\imgui">
-      <UniqueIdentifier>{2ca9dc66-ae21-4b89-90db-9b3638b9532a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GUI">
-      <UniqueIdentifier>{72cd36da-bd85-4ad5-a3b0-d371b6380e74}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\External">
+    <Filter Include="Source Files\Shared\Dependencies">
       <UniqueIdentifier>{fef64fc9-58ba-4b57-b508-c8b77d14c68d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\External\imgui">
+    <Filter Include="Source Files\Shared\Dependencies\imgui">
       <UniqueIdentifier>{5e91d02d-5554-46d9-9ba1-e1927a8c2fe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Dependencies\Assimp">
+      <UniqueIdentifier>{d07a4fba-94e3-411d-8fb9-1d015a2d7bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\Default Shaders">
+      <UniqueIdentifier>{8b5b7173-dff3-4d14-a7f6-6e7c8ce80b61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\GUI">
+      <UniqueIdentifier>{64cec3c9-aab6-458c-b3e7-825a690a6428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\Renderer">
+      <UniqueIdentifier>{d0a05cb2-1557-4eca-8bf4-69e4a2812279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\Utility">
+      <UniqueIdentifier>{9cf451cc-aa57-4a08-995a-eaf79733dc9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared">
+      <UniqueIdentifier>{89aab28c-ac2a-4abb-ba9e-51c53fc9ace2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Dependencies">
+      <UniqueIdentifier>{7051bdc2-5553-4507-971d-9bcefa1dfe22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Engine">
+      <UniqueIdentifier>{bec021e4-4e79-49f1-a6ed-3ebe0b0c1507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Engine\GUI">
+      <UniqueIdentifier>{bbe387db-381e-4dc6-a13f-5963987bb2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Engine\Utility">
+      <UniqueIdentifier>{ab56340d-e61d-438c-909b-80e044f2d3a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Engine\Renderer">
+      <UniqueIdentifier>{0de81b77-8431-4eda-a3bd-934e2176c753}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Dependencies\imgui">
+      <UniqueIdentifier>{2ca9dc66-ae21-4b89-90db-9b3638b9532a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\Game Object">
+      <UniqueIdentifier>{2ff8b233-e288-4e7e-9c67-a891f492b912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Engine\Game Object">
+      <UniqueIdentifier>{b53d9bed-358b-4a0d-b522-db7d72865fe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Dependencies\glad">
+      <UniqueIdentifier>{9aed3221-ec61-4093-b4c7-7eb921b395f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Dependencies\glad">
+      <UniqueIdentifier>{e6aeaee8-b0ec-4632-bd40-46fc70741513}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\robsc\Downloads\glad\src\glad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="STBstuff.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui.cpp">
+      <Filter>Source Files\Shared\Dependencies\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_demo.cpp">
-      <Filter>Source Files\External\imgui</Filter>
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_demo.cpp">
+      <Filter>Source Files\Shared\Dependencies\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_draw.cpp">
-      <Filter>Source Files\External\imgui</Filter>
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_draw.cpp">
+      <Filter>Source Files\Shared\Dependencies\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_impl_glfw.cpp">
-      <Filter>Source Files\External\imgui</Filter>
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_impl_glfw.cpp">
+      <Filter>Source Files\Shared\Dependencies\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_impl_opengl3.cpp">
-      <Filter>Source Files\External\imgui</Filter>
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_impl_opengl3.cpp">
+      <Filter>Source Files\Shared\Dependencies\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_tables.cpp">
-      <Filter>Source Files\External\imgui</Filter>
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_tables.cpp">
+      <Filter>Source Files\Shared\Dependencies\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_widgets.cpp">
-      <Filter>Source Files\External\imgui</Filter>
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_widgets.cpp">
+      <Filter>Source Files\Shared\Dependencies\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui.cpp">
-      <Filter>Source Files\External\imgui</Filter>
+    <ClCompile Include="Shared\Engine\GUI\gui.cpp">
+      <Filter>Source Files\Shared\Engine\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\GUI\gui.cpp">
-      <Filter>Source Files\GUI</Filter>
+    <ClCompile Include="Shared\Engine\Utility\STBstuff.cpp">
+      <Filter>Source Files\Shared\Engine\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\Utility\Transform.cpp">
+      <Filter>Source Files\Shared\Engine\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\Utility\Window.cpp">
+      <Filter>Source Files\Shared\Engine\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\Renderer\Shader.cpp">
+      <Filter>Source Files\Shared\Engine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\Renderer\Camera.cpp">
+      <Filter>Source Files\Shared\Engine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\Renderer\Light.cpp">
+      <Filter>Source Files\Shared\Engine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\GameObject\Model.cpp">
+      <Filter>Source Files\Shared\Engine\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\GameObject\Mesh.cpp">
+      <Filter>Source Files\Shared\Engine\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Dependencies\glad\glad.c">
+      <Filter>Source Files\Shared\Dependencies\glad</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shader.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui_internal.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imstb_rectpack.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imstb_textedit.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="MeshRenderer.h">
-      <Filter>Header Files\Components\MeshComponents</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imstb_truetype.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Light.h">
-      <Filter>Header Files\Components</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imconfig.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui_impl_glfw.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui_impl_opengl3.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imgui_impl_opengl3.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui_impl_opengl3_loader.h">
+      <Filter>Header Files\Shared\Dependencies\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imgui_internal.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Engine\GUI\gui.h">
+      <Filter>Header Files\Shared\Engine\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imstb_rectpack.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Engine\GameObject\Mesh.h">
+      <Filter>Header Files\Shared\Engine\Game Object</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imstb_textedit.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Engine\GameObject\Model.h">
+      <Filter>Header Files\Shared\Engine\Game Object</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imstb_truetype.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Engine\Renderer\Shader.h">
+      <Filter>Header Files\Shared\Engine\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imconfig.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Engine\Renderer\Camera.h">
+      <Filter>Header Files\Shared\Engine\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imgui.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Engine\Renderer\Light.h">
+      <Filter>Header Files\Shared\Engine\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imgui_impl_glfw.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Engine\Utility\Transform.h">
+      <Filter>Header Files\Shared\Engine\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imgui_impl_opengl3_loader.h">
-      <Filter>Header Files\External\imgui</Filter>
+    <ClInclude Include="Shared\Engine\Utility\Window.h">
+      <Filter>Header Files\Shared\Engine\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\GUI\gui.h">
-      <Filter>Header Files\GUI</Filter>
+    <ClInclude Include="Shared\Dependencies\glad\glad.h">
+      <Filter>Header Files\Shared\Dependencies\glad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -141,11 +195,32 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="model_loading.frag">
-      <Filter>Source Files\Shaders</Filter>
+    <None Include="Shared\Dependencies\Assimp\assimp-vc143-mt.dll">
+      <Filter>Source Files\Shared\Dependencies\Assimp</Filter>
     </None>
-    <None Include="model_loading.vs">
-      <Filter>Source Files\Shaders</Filter>
+    <None Include="Shared\Engine\Default Shaders\Basic.frag">
+      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    </None>
+    <None Include="Shared\Engine\Default Shaders\Basic.vs">
+      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    </None>
+    <None Include="Shared\Engine\Default Shaders\Light.frag">
+      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    </None>
+    <None Include="Shared\Engine\Default Shaders\Light.vs">
+      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    </None>
+    <None Include="Shared\Engine\Default Shaders\LightSource.frag">
+      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    </None>
+    <None Include="Shared\Engine\Default Shaders\LightSource.vs">
+      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    </None>
+    <None Include="Shared\Engine\Default Shaders\model_loading.frag">
+      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    </None>
+    <None Include="Shared\Engine\Default Shaders\model_loading.vs">
+      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

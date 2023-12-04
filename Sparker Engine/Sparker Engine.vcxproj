@@ -75,9 +75,9 @@
     <LibraryPath>C:\glfw-lib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\CPP Useful Libraries\stb-master;C:\glfw-lib\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\glfw-lib\assimp;C:\glfw-lib\lib;$(LibraryPath)</LibraryPath>
-    <ReferencePath>C:\glfw-lib\assimp;$(ReferencePath)</ReferencePath>
+    <IncludePath>$(SolutionDir)\Sparker Engine\Shared\Engine;$(SolutionDir)\Sparker Engine\Shared\Dependencies;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Sparker Engine\Shared\Dependencies\libraries;$(LibraryPath)</LibraryPath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\CPP Useful Libraries\stb-master;C:\glfw-lib\include;$(IncludePath)</IncludePath>
@@ -121,13 +121,18 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PreprocessToFile>false</PreprocessToFile>
-      <AdditionalIncludeDirectories>F:\VStudio\Cpp\Sparker Engine\Sparker Engine\Dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Sparker Engine\Shared\Engine;$(SolutionDir)\Sparker Engine\Shared\Dependencies</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Sparker Engine\Shared\Dependencies\libraries;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)\Shared\Dependencies\Assimp\assimp.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)Shared\Dependencies\Assimp\assimp-vc143-mt.dll" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -147,45 +152,59 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\robsc\Downloads\glad\src\glad.c" />
-    <ClCompile Include="Dependencies\ImGui\imgui.cpp" />
-    <ClCompile Include="Dependencies\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="Dependencies\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="Dependencies\ImGui\imgui_impl_glfw.cpp" />
-    <ClCompile Include="Dependencies\ImGui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="Dependencies\ImGui\imgui_tables.cpp" />
-    <ClCompile Include="Dependencies\ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="Engine\GUI\gui.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="STBstuff.cpp" />
+    <ClCompile Include="Shared\Dependencies\glad\glad.c" />
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui.cpp" />
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="Shared\Dependencies\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Shared\Engine\GameObject\Mesh.cpp" />
+    <ClCompile Include="Shared\Engine\GameObject\Model.cpp" />
+    <ClCompile Include="Shared\Engine\GUI\gui.cpp" />
+    <ClCompile Include="Shared\Engine\Renderer\Camera.cpp" />
+    <ClCompile Include="Shared\Engine\Renderer\Light.cpp" />
+    <ClCompile Include="Shared\Engine\Renderer\Shader.cpp" />
+    <ClCompile Include="Shared\Engine\Utility\STBstuff.cpp" />
+    <ClCompile Include="Shared\Engine\Utility\Transform.cpp" />
+    <ClCompile Include="Shared\Engine\Utility\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Dependencies\ImGui\imconfig.h" />
-    <ClInclude Include="Dependencies\ImGui\imgui.h" />
-    <ClInclude Include="Dependencies\ImGui\imgui_impl_glfw.h" />
-    <ClInclude Include="Dependencies\ImGui\imgui_impl_opengl3.h" />
-    <ClInclude Include="Dependencies\ImGui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="Dependencies\ImGui\imgui_internal.h" />
-    <ClInclude Include="Dependencies\ImGui\imstb_rectpack.h" />
-    <ClInclude Include="Dependencies\ImGui\imstb_textedit.h" />
-    <ClInclude Include="Dependencies\ImGui\imstb_truetype.h" />
-    <ClInclude Include="Engine\GUI\gui.h" />
-    <ClInclude Include="Light.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="MeshRenderer.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Transform.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="Shared\Dependencies\glad\glad.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imconfig.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui_impl_glfw.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui_impl_opengl3.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imgui_internal.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Shared\Dependencies\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Shared\Engine\GameObject\Mesh.h" />
+    <ClInclude Include="Shared\Engine\GameObject\Model.h" />
+    <ClInclude Include="Shared\Engine\GUI\gui.h" />
+    <ClInclude Include="Shared\Engine\Renderer\Camera.h" />
+    <ClInclude Include="Shared\Engine\Renderer\Light.h" />
+    <ClInclude Include="Shared\Engine\Renderer\Shader.h" />
+    <ClInclude Include="Shared\Engine\Utility\Transform.h" />
+    <ClInclude Include="Shared\Engine\Utility\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="C:\Users\robsc\Pictures\container2.png" />
     <Image Include="Resources\container2_specular.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="model_loading.frag" />
-    <None Include="model_loading.vs" />
+    <None Include="Shared\Dependencies\Assimp\assimp-vc143-mt.dll" />
+    <None Include="Shared\Engine\Default Shaders\Basic.frag" />
+    <None Include="Shared\Engine\Default Shaders\Basic.vs" />
+    <None Include="Shared\Engine\Default Shaders\Light.frag" />
+    <None Include="Shared\Engine\Default Shaders\Light.vs" />
+    <None Include="Shared\Engine\Default Shaders\LightSource.frag" />
+    <None Include="Shared\Engine\Default Shaders\LightSource.vs" />
+    <None Include="Shared\Engine\Default Shaders\model_loading.frag" />
+    <None Include="Shared\Engine\Default Shaders\model_loading.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
