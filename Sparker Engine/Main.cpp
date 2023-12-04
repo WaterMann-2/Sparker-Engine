@@ -142,8 +142,8 @@ int main() {
 		backpackModel.Draw(backpackShader);
 
 
-		ImGui::Begin("Shitass Nuts");
-		ImGui::Text("GO TO HELL!");
+		ImGui::Begin("Oh Yeah");
+		ImGui::Text("Erm Awkward text am I right guys");
 		ImGui::End();
 
 		basicGui.EndFrame();
