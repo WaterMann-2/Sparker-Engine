@@ -120,14 +120,26 @@
     <ClCompile Include="Shared\Engine\Renderer\Light.cpp">
       <Filter>Source Files\Shared\Engine\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Shared\Engine\GameObject\Model.cpp">
-      <Filter>Source Files\Shared\Engine\Game Object</Filter>
+    <ClCompile Include="Shared\Dependencies\glad\glad.c">
+      <Filter>Source Files\Shared\Dependencies\glad</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\Utility\MaterialManager.cpp">
+      <Filter>Source Files\Shared\Engine\Utility</Filter>
     </ClCompile>
     <ClCompile Include="Shared\Engine\GameObject\Mesh.cpp">
       <Filter>Source Files\Shared\Engine\Game Object</Filter>
     </ClCompile>
-    <ClCompile Include="Shared\Dependencies\glad\glad.c">
-      <Filter>Source Files\Shared\Dependencies\glad</Filter>
+    <ClCompile Include="Shared\Engine\GameObject\MeshRenderer.cpp">
+      <Filter>Source Files\Shared\Engine\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\GameObject\Model.cpp">
+      <Filter>Source Files\Shared\Engine\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\GameObject\Object.cpp">
+      <Filter>Source Files\Shared\Engine\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\GameObject\Component.cpp">
+      <Filter>Source Files\Shared\Engine\Game Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,12 +173,6 @@
     <ClInclude Include="Shared\Engine\GUI\gui.h">
       <Filter>Header Files\Shared\Engine\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Shared\Engine\GameObject\Mesh.h">
-      <Filter>Header Files\Shared\Engine\Game Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Shared\Engine\GameObject\Model.h">
-      <Filter>Header Files\Shared\Engine\Game Object</Filter>
-    </ClInclude>
     <ClInclude Include="Shared\Engine\Renderer\Shader.h">
       <Filter>Header Files\Shared\Engine\Renderer</Filter>
     </ClInclude>
@@ -184,6 +190,24 @@
     </ClInclude>
     <ClInclude Include="Shared\Dependencies\glad\glad.h">
       <Filter>Header Files\Shared\Dependencies\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\Utility\MaterialManager.h">
+      <Filter>Header Files\Shared\Engine\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\GameObject\Mesh.h">
+      <Filter>Header Files\Shared\Engine\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\GameObject\MeshRenderer.h">
+      <Filter>Header Files\Shared\Engine\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\GameObject\Model.h">
+      <Filter>Header Files\Shared\Engine\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\GameObject\Object.h">
+      <Filter>Header Files\Shared\Engine\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\GameObject\Component.h">
+      <Filter>Header Files\Shared\Engine\Game Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

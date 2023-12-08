@@ -21,30 +21,23 @@
 #include "Utility/Window.h"
 
 #include "GUI/gui.h"
-
-glm::vec2 windowSize;
-glm::vec2 oldSize;
-
-void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
-	oldSize = windowSize;
-	windowSize = glm::vec2(width, height);
-	glViewport(0, 0, width, height);
-
-}
-
-glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
-
+#include "GameObject/Object.h"
+#include "GameObject/MeshRenderer.h"
 
 glm::vec2 windowStartingSize(1600, 1000);
+glm::vec2 windowSize;
 
+Camera cam;
 
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 float lastx = 400, lasty = 300;
 float pitch = 0.0f, yaw = -90.0f;
+
+glm::vec3& cameraPos = cam.transform.position;
+glm::vec3& cameraFront = cam.cameraFront;
+glm::vec3& cameraUp = cam.cameraUp;
 
 bool firstmouse = true;
 bool MouseEntered = false;
@@ -56,95 +49,67 @@ void mouse_delta_callback(GLFWwindow* window, double xpos, double ypos);
 void mouse_entered_callback(GLFWwindow* window, int entered);
 unsigned int loadTexture(char const* path);
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+	windowSize = glm::vec2(width, height);
+	cam.UpdateProjection(width, height);
+	glViewport(0, 0, width, height);
+}
 
 int main() {
 
-	//Window Creation
-	Window mainWindow(windowStartingSize, "Sparker Engine");
-	GLFWwindow* window = mainWindow.window;
+	Object object;
+	MeshRenderer* meshRend = new MeshRenderer();
+	object.AddComponent(meshRend);
 
-	if (window == NULL) {
-		std::cout << "Failed to create GLFW window" << std::endl;
-		glfwTerminate();
-		return -1;
+	MeshRenderer* mesh2 = object.GetComponent<MeshRenderer>();
+	if (mesh2) {
+		mesh2->SayHello();
 	}
 
-
-	glfwMakeContextCurrent(window);
+	//Window Creation
+	Window mainWindow(windowStartingSize, "Sparker Engine");
+	GLFWwindow*& window = mainWindow.window;
 
 	//Load Glad
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 		std::cout << "Failed to load Glad" << endl;
 	}
 
-	stbi_set_flip_vertically_on_load(true);
 
 	//global opengl state
+	stbi_set_flip_vertically_on_load(true);
 	glEnable(GL_DEPTH_TEST);
 
-	//build and compile shaders
-	Shader backpackShader("Shared/Engine/Default Shaders/model_loading.vs", "Shared/Engine/Default Shaders/model_loading.frag");
-
-	//Load Models
-	Model backpackModel("backpack/backpack.obj");
-
 	//Camera stuff
-	windowSize = glm::vec2(windowStartingSize.x, windowStartingSize.y);
-	Camera cam("Main", window, 90.0f);
+	cam.AssignWindow(window);
 
+	//Gui
 	gui basicGui(window);
 	globalIO = basicGui.IO;
 
+	int wwidth, wheight;
 
 	while (!glfwWindowShouldClose(window)) {
+
+		// Input Handling
+		glfwSetCursorPosCallback(window, mouse_delta_callback);
+		glfwSetCursorEnterCallback(window, mouse_entered_callback);
+		processInput(window);
 
 		//Frame Time Logic
 		float currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
-
-		
-		//input
-		glfwSetCursorPosCallback(window, mouse_delta_callback);
-		glfwSetCursorEnterCallback(window, mouse_entered_callback);
-		processInput(window);
+		mainWindow.deltaTime = deltaTime;
 
 		//render loop
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		//GUI begin
 		basicGui.BeginFrame();
 
-		//Use Shaders
-		backpackShader.use();
-
-		//Camera Update
-		cam.UpdateProjection(windowSize.x, windowSize.y);
-
-		cam.transform.position = cameraPos;
-		cam.transform.rotation = glm::vec3(pitch, yaw, 0.0f);
-		cameraFront = cam.cameraFront;
-
-		cam.UpdateCamera();
-
-		glm::mat4 projection = cam.projection;
-		glm::mat4 view = cam.view;
-
-		//Update Shader Projection
-		backpackShader.setMat4("projection", projection);
-		backpackShader.setMat4("view", view);
-
-		//Render Models
-		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
-		backpackShader.setMat4("model", model);
-		backpackModel.Draw(backpackShader);
-
-
-		ImGui::Begin("Oh Yeah");
-		ImGui::Text("Erm Awkward text am I right guys");
-		ImGui::End();
+		basicGui.WindowInformation(mainWindow);
 
 		basicGui.EndFrame();
 
@@ -201,8 +166,6 @@ void mouse_delta_callback(GLFWwindow* window, double xpos, double ypos) {
 	double rxpos, rypos;
 
 	glfwGetCursorPos(window, &rxpos, &rypos);
-
-	cout << "x: " << rxpos << " y: " << rypos << endl;
 
 	if (firstmouse) {
 		lastx = xpos;

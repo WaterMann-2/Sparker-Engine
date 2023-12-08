@@ -11,18 +11,13 @@
 #include <vector>
 
 #include "Renderer/shader.h"
+#include "Utility/MaterialManager.h"
 
 
 struct Vertex {
 	glm::vec3 Position;
 	glm::vec3 Normal;
 	glm::vec3 TexCoords;
-};
-
-struct Texture {
-	unsigned int id;
-	string type;
-	string path;
 };
 
 class Mesh {

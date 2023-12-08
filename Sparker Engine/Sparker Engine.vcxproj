@@ -161,12 +161,16 @@ copy /Y "$(ProjectDir)Shared\Dependencies\Assimp\assimp-vc143-mt.dll" "$(TargetD
     <ClCompile Include="Shared\Dependencies\ImGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="Shared\Dependencies\ImGui\imgui_tables.cpp" />
     <ClCompile Include="Shared\Dependencies\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Shared\Engine\GameObject\Component.cpp" />
     <ClCompile Include="Shared\Engine\GameObject\Mesh.cpp" />
+    <ClCompile Include="Shared\Engine\GameObject\MeshRenderer.cpp" />
     <ClCompile Include="Shared\Engine\GameObject\Model.cpp" />
+    <ClCompile Include="Shared\Engine\GameObject\Object.cpp" />
     <ClCompile Include="Shared\Engine\GUI\gui.cpp" />
     <ClCompile Include="Shared\Engine\Renderer\Camera.cpp" />
     <ClCompile Include="Shared\Engine\Renderer\Light.cpp" />
     <ClCompile Include="Shared\Engine\Renderer\Shader.cpp" />
+    <ClCompile Include="Shared\Engine\Utility\MaterialManager.cpp" />
     <ClCompile Include="Shared\Engine\Utility\STBstuff.cpp" />
     <ClCompile Include="Shared\Engine\Utility\Transform.cpp" />
     <ClCompile Include="Shared\Engine\Utility\Window.cpp" />
@@ -182,12 +186,16 @@ copy /Y "$(ProjectDir)Shared\Dependencies\Assimp\assimp-vc143-mt.dll" "$(TargetD
     <ClInclude Include="Shared\Dependencies\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Shared\Dependencies\ImGui\imstb_textedit.h" />
     <ClInclude Include="Shared\Dependencies\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Shared\Engine\GameObject\Component.h" />
     <ClInclude Include="Shared\Engine\GameObject\Mesh.h" />
+    <ClInclude Include="Shared\Engine\GameObject\MeshRenderer.h" />
     <ClInclude Include="Shared\Engine\GameObject\Model.h" />
+    <ClInclude Include="Shared\Engine\GameObject\Object.h" />
     <ClInclude Include="Shared\Engine\GUI\gui.h" />
     <ClInclude Include="Shared\Engine\Renderer\Camera.h" />
     <ClInclude Include="Shared\Engine\Renderer\Light.h" />
     <ClInclude Include="Shared\Engine\Renderer\Shader.h" />
+    <ClInclude Include="Shared\Engine\Utility\MaterialManager.h" />
     <ClInclude Include="Shared\Engine\Utility\Transform.h" />
     <ClInclude Include="Shared\Engine\Utility\Window.h" />
   </ItemGroup>

@@ -19,6 +19,7 @@
 #include <string>
 
 #include "GameObject/Mesh.h"
+#include "Utility/Window.h"
 
 class gui {
 
@@ -34,7 +35,7 @@ public:
 
 	void EndFrame();
 
-	void MeshInfo(Mesh inputMesh);
+	void WindowInformation(Window window);
 
 	/*
 	void NewGuiWindow(const char* windowName);

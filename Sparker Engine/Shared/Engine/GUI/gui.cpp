@@ -16,6 +16,7 @@
 #include <stb/stb_image.h>
 #include "gui.h"
 #include "GameObject/Mesh.h"
+#include "Utility/Window.h"
 
 
 
@@ -46,8 +47,12 @@ void gui::EndFrame() {
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
-void gui::MeshInfo(Mesh inputMesh) {
-
+void gui::WindowInformation(Window window) {
+	Window& currentWindow = window;
+	ImGui::Begin("Window Information");
+	ImGui::Text(("Window: " + window.Name).c_str());
+	ImGui::Text(("Last frame time: " + std::to_string((int)(currentWindow.deltaTime * 1000)) + "ms").c_str());
+	ImGui::End();
 }
 
 /*
