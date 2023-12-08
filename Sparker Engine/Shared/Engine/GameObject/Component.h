@@ -1,6 +1,6 @@
-#ifndef COMPONENT_H
-
 #pragma once
+
+#ifndef COMPONENT_H
 
 #define COMPONENT_H
 

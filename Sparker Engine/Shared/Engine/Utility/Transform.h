@@ -13,11 +13,12 @@
 
 #include <glad/glad.h>
 #include <glfw3/glfw3.h>
+#include "GameObject/Component.h"
 
 /**
 Contains position, rotation, and scale of an object in 3D space
 */
-class Transform {
+class Transform : public Component {
 
 public:
 

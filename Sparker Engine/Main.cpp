@@ -1,3 +1,5 @@
+#pragma once
+
 #include <ImGui/imgui.h>
 #include <ImGui/imgui_impl_glfw.h>
 #include <ImGui/imgui_impl_opengl3.h>
@@ -21,8 +23,8 @@
 #include "Utility/Window.h"
 
 #include "GUI/gui.h"
-#include "GameObject/Object.h"
 #include "GameObject/MeshRenderer.h"
+#include "GameObject/Object.h"
 
 glm::vec2 windowStartingSize(1600, 1000);
 glm::vec2 windowSize;
@@ -47,7 +49,6 @@ ImGuiIO* globalIO;
 void processInput(GLFWwindow* window);
 void mouse_delta_callback(GLFWwindow* window, double xpos, double ypos);
 void mouse_entered_callback(GLFWwindow* window, int entered);
-unsigned int loadTexture(char const* path);
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 	windowSize = glm::vec2(width, height);
@@ -57,13 +58,13 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 
 int main() {
 
-	Object object;
-	MeshRenderer* meshRend = new MeshRenderer();
-	object.AddComponent(meshRend);
+	Object pogObject;
+	MeshRenderer* rend = new MeshRenderer;
+	pogObject.AddComponent(rend);
 
-	MeshRenderer* mesh2 = object.GetComponent<MeshRenderer>();
-	if (mesh2) {
-		mesh2->SayHello();
+	MeshRenderer* rendRef = pogObject.GetComponent<MeshRenderer>();
+	if (rendRef != NULL) {
+		rendRef->SayHello();
 	}
 
 	//Window Creation
@@ -207,42 +208,4 @@ void mouse_entered_callback(GLFWwindow* window, int entered) {
 		firstmouse = true;
 		return;
 	}
-}
-
-unsigned int loadTexture(char const* path)
-{
-	unsigned int textureID;
-	glGenTextures(1, &textureID);
-
-	int width, height, nrComponents;
-	unsigned char* data = stbi_load(path, &width, &height, &nrComponents, 0);
-	if (data)
-	{
-		GLenum format;
-		if (nrComponents == 1)
-			format = GL_RED;
-		else if (nrComponents == 3)
-			format = GL_RGB;
-		else if (nrComponents == 4)
-			format = GL_RGBA;
-
-		glBindTexture(GL_TEXTURE_2D, textureID);
-		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
-
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-		stbi_image_free(data);
-	}
-	else
-	{
-		std::cout << "Texture failed to load at path: " << path << std::endl;
-		std::cout << stbi_failure_reason() << endl; 
-		stbi_image_free(data);
-	}
-
-	return textureID;
 }
