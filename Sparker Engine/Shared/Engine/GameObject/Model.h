@@ -18,7 +18,7 @@
 #include <map>
 #include <vector>
 
-#include "Renderer/Shader.h"
+#include "Shader/Shader.h"
 #include "Mesh.h"
 
 unsigned int TextureFromFile(const char* path, const string& directory, bool gamma);

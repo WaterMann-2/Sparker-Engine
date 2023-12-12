@@ -1,4 +1,3 @@
-#pragma once
 
 #ifndef OBJECT_H
 
@@ -26,11 +25,14 @@ public:
 	Transform transform;
 
 
+	void componentEarlyUpdate();
+	void componentUpdate();
+	void componentLateUpdate();
+
 private:
 	std::vector<Component*> components;
-	
-	
+
+
 };
 
-#include "GameObject/Object.cpp"
 #endif // !OBJECT_H

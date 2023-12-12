@@ -44,3 +44,22 @@ void Object::RemoveComponent(T* component) {
 		components.erase(it);
 	}
 }
+
+
+void Object::componentEarlyUpdate() {
+	for (Component* component : components){
+		component->EarlyFrame();
+	}
+}
+
+void Object::componentUpdate() {
+	for (Component* component : components) {
+		component->OnFrame();
+	}
+}
+
+void Object::componentLateUpdate() {
+	for (Component* component : components) {
+		component->LateFrame();
+	}
+}

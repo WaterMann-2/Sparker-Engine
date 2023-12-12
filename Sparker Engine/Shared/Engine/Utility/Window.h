@@ -16,6 +16,7 @@
 #include <algorithm>
 
 #include <stb/stb_image.h>
+#include "Utility/Time.h"
 
 
 
@@ -30,7 +31,7 @@ public:
 	
 	glm::vec2 mousePosition = glm::vec2(0.0f, 0.0f), mouseDelta = glm::vec2(0.0f, 0.0f);
 	
-	Window(glm::vec2 StartSize, const char* WindowName) {
+	Window(glm::vec2 StartSize, const char* WindowName, Time* inputTime) {
 		//Window Init
 		glfwInit();
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -47,6 +48,7 @@ public:
 
 		glfwMakeContextCurrent(window);
 
+		windowTime = inputTime;
 	}
 
 	void setInputKeys(vector<int> newInputKeys) {
@@ -86,12 +88,19 @@ public:
 		return false;
 	}
 
+	void BindTime(Time* inputTime) {
+		windowTime = inputTime;
+	}
 
+	void RetrieveTime(Time* inputTime) {
+		inputTime = windowTime;
+	}
 
 private:
 	vector<int> inputKeys;
 	vector<char> inputKeysPressed;
 	char mouseButtonsPressed[5] = { 0, 0, 0, 0, 0 };
+	Time* windowTime;
 
 };
 

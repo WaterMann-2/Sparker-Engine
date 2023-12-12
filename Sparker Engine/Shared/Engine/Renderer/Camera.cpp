@@ -1,18 +1,15 @@
 #include <string>
-#include <fstream>
-#include <sstream>
 #include <iostream>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include <glad/glad.h>
-#include <glfw3/glfw3.h>
 
 #include "Utility/Transform.h"
 #include "Renderer/Camera.h"
 
+/*
 
 Camera::Camera() {
 	projection = glm::mat4(1.0f);
@@ -45,3 +42,4 @@ void Camera::UpdateProjection(int width, int height) {
 	std::cout << "New Ratio: " << aspectRatio << std::endl;
 	projection = glm::perspective(glm::radians(FOV), aspectRatio, 0.1f, FarClipPlane);
 }
+*/

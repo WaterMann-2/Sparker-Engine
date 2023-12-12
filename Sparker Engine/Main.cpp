@@ -1,4 +1,3 @@
-#pragma once
 
 #include <ImGui/imgui.h>
 #include <ImGui/imgui_impl_glfw.h>
@@ -16,7 +15,7 @@
 
 #include <string>
 
-#include "Renderer/Shader.h"
+#include "Shader/Shader.h"
 #include "Utility/Transform.h"
 #include "Renderer/Camera.h"
 #include "GameObject/Model.h"
@@ -25,11 +24,15 @@
 #include "GUI/gui.h"
 #include "GameObject/MeshRenderer.h"
 #include "GameObject/Object.h"
+#include "Utility/Time.h"
+#include "Utility/MaterialManager.h"
 
 glm::vec2 windowStartingSize(1600, 1000);
 glm::vec2 windowSize;
 
 Camera cam;
+
+Time* gameTime;
 
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
@@ -37,9 +40,9 @@ float lastFrame = 0.0f;
 float lastx = 400, lasty = 300;
 float pitch = 0.0f, yaw = -90.0f;
 
-glm::vec3& cameraPos = cam.transform.position;
+/*glm::vec3& cameraPos = cam.transform.position;
 glm::vec3& cameraFront = cam.cameraFront;
-glm::vec3& cameraUp = cam.cameraUp;
+glm::vec3& cameraUp = cam.cameraUp;*/
 
 bool firstmouse = true;
 bool MouseEntered = false;
@@ -52,23 +55,18 @@ void mouse_entered_callback(GLFWwindow* window, int entered);
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 	windowSize = glm::vec2(width, height);
-	cam.UpdateProjection(width, height);
+	//cam.UpdateProjection(width, height);
 	glViewport(0, 0, width, height);
 }
 
 int main() {
 
-	Object pogObject;
-	MeshRenderer* rend = new MeshRenderer;
-	pogObject.AddComponent(rend);
-
-	MeshRenderer* rendRef = pogObject.GetComponent<MeshRenderer>();
-	if (rendRef != NULL) {
-		rendRef->SayHello();
+	if (!gameTime) {
+		gameTime = new Time;
 	}
 
 	//Window Creation
-	Window mainWindow(windowStartingSize, "Sparker Engine");
+	Window mainWindow(windowStartingSize, "Sparker Engine", *&gameTime);
 	GLFWwindow*& window = mainWindow.window;
 
 	//Load Glad
@@ -82,13 +80,20 @@ int main() {
 	glEnable(GL_DEPTH_TEST);
 
 	//Camera stuff
-	cam.AssignWindow(window);
+	//cam.AssignWindow(window);
 
 	//Gui
 	gui basicGui(window);
 	globalIO = basicGui.IO;
 
 	int wwidth, wheight;
+
+	//code testing
+	Material goofyLittleGuy;
+	goofyLittleGuy.name = "Bill";
+
+	MaterialManager::materialToFile(goofyLittleGuy, "Shared/Engine/Engine Defaults/Materials");
+
 
 	while (!glfwWindowShouldClose(window)) {
 
@@ -98,9 +103,8 @@ int main() {
 		processInput(window);
 
 		//Frame Time Logic
-		float currentFrame = glfwGetTime();
-		deltaTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
+		gameTime->CalcTime();
+		deltaTime = gameTime->deltaTime();
 		mainWindow.deltaTime = deltaTime;
 
 		//render loop
@@ -141,7 +145,7 @@ void processInput(GLFWwindow *window) {
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	}
 
-
+	/*
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		cameraPos += cameraSpeed * cameraFront;
 		
@@ -155,7 +159,7 @@ void processInput(GLFWwindow *window) {
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 	}
-	
+	*/
 }
 
 void mouse_delta_callback(GLFWwindow* window, double xpos, double ypos) {

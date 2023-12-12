@@ -3,23 +3,20 @@
 #define CAMERA_H
 
 #include <string>
-#include <fstream>
-#include <sstream>
 #include <iostream>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include <glad/glad.h>
-#include <glfw3/glfw3.h>
 
 #include "Utility/Transform.h"
+#include "Renderer/Camera.h"
 
-class Camera {
+class Camera : public Component {
 
 public:
-
+	/*
 	Transform transform;
 
 	glm::mat4 projection;
@@ -43,8 +40,8 @@ public:
 private:
 	
 	
-
+	*/
 };
 
-
+#include "Renderer/Camera.cpp"
 #endif

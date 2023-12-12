@@ -28,9 +28,6 @@
     <Filter Include="Source Files\Shared\Dependencies\Assimp">
       <UniqueIdentifier>{d07a4fba-94e3-411d-8fb9-1d015a2d7bbc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Shared\Engine\Default Shaders">
-      <UniqueIdentifier>{8b5b7173-dff3-4d14-a7f6-6e7c8ce80b61}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Shared\Engine\GUI">
       <UniqueIdentifier>{64cec3c9-aab6-458c-b3e7-825a690a6428}</UniqueIdentifier>
     </Filter>
@@ -73,6 +70,24 @@
     <Filter Include="Header Files\Shared\Dependencies\glad">
       <UniqueIdentifier>{e6aeaee8-b0ec-4632-bd40-46fc70741513}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shared\Engine\Engine Defaults">
+      <UniqueIdentifier>{27d64471-e216-40ac-83af-866d6e1d0e47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\Engine Defaults\Default Materials">
+      <UniqueIdentifier>{6dfc4a10-fce1-4523-a397-6b99ae332e17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\Engine Defaults\Shader">
+      <UniqueIdentifier>{8b5b7173-dff3-4d14-a7f6-6e7c8ce80b61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\Engine Defaults\Shader\Compiled">
+      <UniqueIdentifier>{c9e6ee51-be71-4aff-8131-5e7093504d3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared\Engine\Engine Defaults\Shader\Raw">
+      <UniqueIdentifier>{34ae4fca-1e81-471b-98df-fc5ba1bbee33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared\Engine\Shader">
+      <UniqueIdentifier>{f2df5339-d270-4226-ab00-cd3ccc63b8c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -111,9 +126,6 @@
     <ClCompile Include="Shared\Engine\Utility\Window.cpp">
       <Filter>Source Files\Shared\Engine\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="Shared\Engine\Renderer\Shader.cpp">
-      <Filter>Source Files\Shared\Engine\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="Shared\Engine\Renderer\Camera.cpp">
       <Filter>Source Files\Shared\Engine\Renderer</Filter>
     </ClCompile>
@@ -140,6 +152,12 @@
     </ClCompile>
     <ClCompile Include="Shared\Engine\GameObject\Component.cpp">
       <Filter>Source Files\Shared\Engine\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\Utility\Scene.cpp">
+      <Filter>Source Files\Shared\Engine\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\Engine\Shader\Shader.cpp">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,17 +191,11 @@
     <ClInclude Include="Shared\Engine\GUI\gui.h">
       <Filter>Header Files\Shared\Engine\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Shared\Engine\Renderer\Shader.h">
-      <Filter>Header Files\Shared\Engine\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="Shared\Engine\Renderer\Camera.h">
       <Filter>Header Files\Shared\Engine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Shared\Engine\Renderer\Light.h">
       <Filter>Header Files\Shared\Engine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="Shared\Engine\Utility\Transform.h">
-      <Filter>Header Files\Shared\Engine\Utility</Filter>
     </ClInclude>
     <ClInclude Include="Shared\Engine\Utility\Window.h">
       <Filter>Header Files\Shared\Engine\Utility</Filter>
@@ -209,6 +221,18 @@
     <ClInclude Include="Shared\Engine\GameObject\Component.h">
       <Filter>Header Files\Shared\Engine\Game Object</Filter>
     </ClInclude>
+    <ClInclude Include="Shared\Engine\Utility\Scene.h">
+      <Filter>Header Files\Shared\Engine\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\Utility\Time.h">
+      <Filter>Header Files\Shared\Engine\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\Utility\Transform.h">
+      <Filter>Header Files\Shared\Engine\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\Shader\Shader.h">
+      <Filter>Header Files\Shared\Engine\Shader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="C:\Users\robsc\Pictures\container2.png">
@@ -222,29 +246,38 @@
     <None Include="Shared\Dependencies\Assimp\assimp-vc143-mt.dll">
       <Filter>Source Files\Shared\Dependencies\Assimp</Filter>
     </None>
-    <None Include="Shared\Engine\Default Shaders\Basic.frag">
-      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    <None Include="Material Basic.material">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Default Materials</Filter>
     </None>
-    <None Include="Shared\Engine\Default Shaders\Basic.vs">
-      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    <None Include="Shared\Engine\Shader\Raw\Basic.frag">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
     </None>
-    <None Include="Shared\Engine\Default Shaders\Light.frag">
-      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    <None Include="Shared\Engine\Shader\Raw\Basic.vs">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
     </None>
-    <None Include="Shared\Engine\Default Shaders\Light.vs">
-      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    <None Include="Shared\Engine\Shader\Raw\Light.frag">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
     </None>
-    <None Include="Shared\Engine\Default Shaders\LightSource.frag">
-      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    <None Include="Shared\Engine\Shader\Raw\Light.vs">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
     </None>
-    <None Include="Shared\Engine\Default Shaders\LightSource.vs">
-      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    <None Include="Shared\Engine\Shader\Raw\LightSource.frag">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
     </None>
-    <None Include="Shared\Engine\Default Shaders\model_loading.frag">
-      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    <None Include="Shared\Engine\Shader\Raw\LightSource.vs">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
     </None>
-    <None Include="Shared\Engine\Default Shaders\model_loading.vs">
-      <Filter>Source Files\Shared\Engine\Default Shaders</Filter>
+    <None Include="Shared\Engine\Shader\Raw\model_loading.frag">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
+    </None>
+    <None Include="Shared\Engine\Shader\Raw\model_loading.vs">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
+    </None>
+    <None Include="Shared\Engine\Shader\Raw\Default.frag">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
+    </None>
+    <None Include="Shared\Engine\Shader\Raw\Default.vert">
+      <Filter>Source Files\Shared\Engine\Engine Defaults\Shader\Raw</Filter>
     </None>
   </ItemGroup>
 </Project>

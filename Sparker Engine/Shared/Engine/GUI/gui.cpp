@@ -49,9 +49,19 @@ void gui::EndFrame() {
 
 void gui::WindowInformation(Window window) {
 	Window& currentWindow = window;
+	std::string frameTimeStr;
+
+	if (currentWindow.deltaTime * 1000 < 0.0f) {
+		frameTimeStr = "<0ms";
+		
+	}
+	else {
+		frameTimeStr = std::to_string((int)(currentWindow.deltaTime * 1000)) + "ms";
+	}
+
 	ImGui::Begin("Window Information");
 	ImGui::Text(("Window: " + window.Name).c_str());
-	ImGui::Text(("Last frame time: " + std::to_string((int)(currentWindow.deltaTime * 1000)) + "ms").c_str());
+	ImGui::Text(("Last frame time: " + frameTimeStr).c_str());
 	ImGui::End();
 }
 

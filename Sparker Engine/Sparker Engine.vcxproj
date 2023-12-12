@@ -169,8 +169,9 @@ copy /Y "$(ProjectDir)Shared\Dependencies\Assimp\assimp-vc143-mt.dll" "$(TargetD
     <ClCompile Include="Shared\Engine\GUI\gui.cpp" />
     <ClCompile Include="Shared\Engine\Renderer\Camera.cpp" />
     <ClCompile Include="Shared\Engine\Renderer\Light.cpp" />
-    <ClCompile Include="Shared\Engine\Renderer\Shader.cpp" />
+    <ClCompile Include="Shared\Engine\Shader\Shader.cpp" />
     <ClCompile Include="Shared\Engine\Utility\MaterialManager.cpp" />
+    <ClCompile Include="Shared\Engine\Utility\Scene.cpp" />
     <ClCompile Include="Shared\Engine\Utility\STBstuff.cpp" />
     <ClCompile Include="Shared\Engine\Utility\Transform.cpp" />
     <ClCompile Include="Shared\Engine\Utility\Window.cpp" />
@@ -194,8 +195,10 @@ copy /Y "$(ProjectDir)Shared\Dependencies\Assimp\assimp-vc143-mt.dll" "$(TargetD
     <ClInclude Include="Shared\Engine\GUI\gui.h" />
     <ClInclude Include="Shared\Engine\Renderer\Camera.h" />
     <ClInclude Include="Shared\Engine\Renderer\Light.h" />
-    <ClInclude Include="Shared\Engine\Renderer\Shader.h" />
+    <ClInclude Include="Shared\Engine\Shader\Shader.h" />
     <ClInclude Include="Shared\Engine\Utility\MaterialManager.h" />
+    <ClInclude Include="Shared\Engine\Utility\Scene.h" />
+    <ClInclude Include="Shared\Engine\Utility\Time.h" />
     <ClInclude Include="Shared\Engine\Utility\Transform.h" />
     <ClInclude Include="Shared\Engine\Utility\Window.h" />
   </ItemGroup>
@@ -204,15 +207,18 @@ copy /Y "$(ProjectDir)Shared\Dependencies\Assimp\assimp-vc143-mt.dll" "$(TargetD
     <Image Include="Resources\container2_specular.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Material Basic.material" />
     <None Include="Shared\Dependencies\Assimp\assimp-vc143-mt.dll" />
-    <None Include="Shared\Engine\Default Shaders\Basic.frag" />
-    <None Include="Shared\Engine\Default Shaders\Basic.vs" />
-    <None Include="Shared\Engine\Default Shaders\Light.frag" />
-    <None Include="Shared\Engine\Default Shaders\Light.vs" />
-    <None Include="Shared\Engine\Default Shaders\LightSource.frag" />
-    <None Include="Shared\Engine\Default Shaders\LightSource.vs" />
-    <None Include="Shared\Engine\Default Shaders\model_loading.frag" />
-    <None Include="Shared\Engine\Default Shaders\model_loading.vs" />
+    <None Include="Shared\Engine\Shader\Raw\Basic.frag" />
+    <None Include="Shared\Engine\Shader\Raw\Basic.vs" />
+    <None Include="Shared\Engine\Shader\Raw\Default.frag" />
+    <None Include="Shared\Engine\Shader\Raw\Default.vert" />
+    <None Include="Shared\Engine\Shader\Raw\Light.frag" />
+    <None Include="Shared\Engine\Shader\Raw\Light.vs" />
+    <None Include="Shared\Engine\Shader\Raw\LightSource.frag" />
+    <None Include="Shared\Engine\Shader\Raw\LightSource.vs" />
+    <None Include="Shared\Engine\Shader\Raw\model_loading.frag" />
+    <None Include="Shared\Engine\Shader\Raw\model_loading.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

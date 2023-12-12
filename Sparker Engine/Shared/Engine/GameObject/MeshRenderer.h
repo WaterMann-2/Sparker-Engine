@@ -7,26 +7,26 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <vector>
 
 #include "GameObject/Component.h"
 #include "Utility/MaterialManager.h"
+#include "GameObject/Mesh.h"
 
 class MeshRenderer : public Component {
 public:
 
-	vector<Material> Materials;
-	Mesh mesh;
+	vector<Material*> Materials;
+	Mesh* mesh;
 
-	MeshRenderer() {
+	MeshRenderer();
 
-	}
+	void EarlyFrame() override;
 
-	void SayHello() {
-		std::cout << "OH MY GAWWSH HAIIII!" << std::endl;
-	}
 
 private:
 
 
 };
+
 #endif // !MESHRENDERER_H
