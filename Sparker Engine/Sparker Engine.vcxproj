@@ -165,6 +165,7 @@ copy /Y "$(ProjectDir)Shared\Dependencies\Assimp\assimp-vc143-mt.dll" "$(TargetD
     <ClCompile Include="Shared\Engine\GameObject\Mesh.cpp" />
     <ClCompile Include="Shared\Engine\GameObject\MeshRenderer.cpp" />
     <ClCompile Include="Shared\Engine\GameObject\Model.cpp" />
+    <ClCompile Include="Shared\Engine\GameObject\ModelImporter.cpp" />
     <ClCompile Include="Shared\Engine\GameObject\Object.cpp" />
     <ClCompile Include="Shared\Engine\GUI\gui.cpp" />
     <ClCompile Include="Shared\Engine\Renderer\Camera.cpp" />
@@ -191,6 +192,7 @@ copy /Y "$(ProjectDir)Shared\Dependencies\Assimp\assimp-vc143-mt.dll" "$(TargetD
     <ClInclude Include="Shared\Engine\GameObject\Mesh.h" />
     <ClInclude Include="Shared\Engine\GameObject\MeshRenderer.h" />
     <ClInclude Include="Shared\Engine\GameObject\Model.h" />
+    <ClInclude Include="Shared\Engine\GameObject\ModelImporter.h" />
     <ClInclude Include="Shared\Engine\GameObject\Object.h" />
     <ClInclude Include="Shared\Engine\GUI\gui.h" />
     <ClInclude Include="Shared\Engine\Renderer\Camera.h" />

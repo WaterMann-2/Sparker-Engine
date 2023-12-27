@@ -14,5 +14,5 @@ MeshRenderer::MeshRenderer() {
 }
 
 void MeshRenderer::EarlyFrame() {
-
+	//for (unsigned int i = 0; i < Meshes.size(); i++) Meshes[i]->Draw();
 }

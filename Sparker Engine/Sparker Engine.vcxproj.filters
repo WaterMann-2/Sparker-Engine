@@ -159,6 +159,9 @@
     <ClCompile Include="Shared\Engine\Shader\Shader.cpp">
       <Filter>Source Files\Shared\Engine\Engine Defaults\Shader</Filter>
     </ClCompile>
+    <ClCompile Include="Shared\Engine\GameObject\ModelImporter.cpp">
+      <Filter>Source Files\Shared\Engine\Game Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shared\Dependencies\ImGui\imgui_internal.h">
@@ -232,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="Shared\Engine\Shader\Shader.h">
       <Filter>Header Files\Shared\Engine\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Engine\GameObject\ModelImporter.h">
+      <Filter>Header Files\Shared\Engine\Game Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

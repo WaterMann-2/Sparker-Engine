@@ -17,7 +17,8 @@ class MeshRenderer : public Component {
 public:
 
 	vector<Material*> Materials;
-	Mesh* mesh;
+	vector<Mesh*> Meshes;
+
 
 	MeshRenderer();
 

@@ -25,7 +25,8 @@ struct Texture {
 
 struct Material {
 	unsigned int id;
-	bool enabled = true;
+	bool enabled;
+	bool lit;
 	std::string name;
 	vector<Texture> textureDiffuse;
 	vector<Texture> textureSpecular;
@@ -35,14 +36,14 @@ struct Material {
 	float shininess = 0.2f;
 	
 	Material() :
-		id(0),
 		enabled(true),
+		lit(true),
 		name("New Material"),
 		textureDiffuse(),
 		textureSpecular(),
 		diffuse(1.0f),
-		specular(0.25f),
-		shininess(0.15f) {}
+		specular(1.0f),
+		shininess(24.0f) {}
 };
 
 class MaterialManager {
